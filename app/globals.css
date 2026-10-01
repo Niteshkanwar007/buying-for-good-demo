@@ -64,3 +64,20 @@ body {
   *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; scroll-behavior:auto!important; }
   .understanding-card,.understanding-photo { opacity:1!important; transform:none!important; }
 }
+
+@layer components {
+  .what-if-section { min-height: 100svh; }
+  .what-if-stage { isolation: isolate; }
+  .what-if-card, .big-idea-ring { will-change: transform, opacity; }
+}
+@media (max-width: 767px) {
+  .what-if-section { padding: 7rem 1.25rem 6rem; }
+  .what-if-stage { min-height: auto; padding-bottom: 5rem; }
+  .what-if-label { position: relative; inset: auto; margin-bottom: 4rem; }
+  .what-if-cards { position: relative; display: grid; gap: 1rem; }
+  .what-if-card { position: relative; inset: auto; width: 100%; transform: none; }
+  .what-if-orbit { width: 118vw; height: 118vw; top: 30%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .what-if-card { opacity: 1 !important; transform: none !important; }
+}
