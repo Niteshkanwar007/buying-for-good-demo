@@ -1,6 +1,11 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Audience = "business" | "charity" | "supporter";
 
@@ -50,6 +55,31 @@ export function InterestForm() {
   const [submitting, setSubmitting] = useState(false);
   const firstError = useRef<HTMLDivElement>(null);
   const confirmationHeading = useRef<HTMLHeadingElement>(null);
+  const formRoot = useRef<HTMLFormElement>(null);
+
+  useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const steps = gsap.utils.toArray<HTMLElement>(".interest-form-step");
+    if (!steps.length) return;
+
+    gsap.fromTo(
+      steps,
+      { opacity: 0, y: 18 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: formRoot.current,
+          start: "top 88%",
+          end: "top 58%",
+          scrub: 0.8,
+        },
+      }
+    );
+  }, { scope: formRoot });
 
   useEffect(() => {
     if (submitted) confirmationHeading.current?.focus();
@@ -94,14 +124,14 @@ export function InterestForm() {
   const errorCount = Object.keys(errors).length;
 
   return (
-    <form onSubmit={submit} noValidate aria-describedby="form-boundary-note" className="space-y-10">
+    <form ref={formRoot} onSubmit={submit} noValidate aria-describedby="form-boundary-note" className="space-y-10">
       {attempted && errorCount > 0 && (
         <div ref={firstError} tabIndex={-1} role="alert" className="rounded-2xl border border-red-900/20 bg-red-50 p-5 text-sm leading-6 text-red-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-800">
           Please check the highlighted fields below.
         </div>
       )}
 
-      <fieldset>
+      <fieldset className="interest-form-step">
         <legend className="font-display text-2xl leading-tight sm:text-3xl">I am here as a...</legend>
         <div className="mt-5 grid gap-2 sm:grid-cols-3">
           {(Object.keys(audienceLabels) as Audience[]).map((key) => {
@@ -122,12 +152,17 @@ export function InterestForm() {
         <Field id="interest-email" label="Email" type="email" value={values.email} error={errors.email} required onChange={(value) => update("email", value)} />
       </div>
 
-      {values.audience !== "supporter" && (
-        <div className="grid gap-8 sm:grid-cols-2">
-          <Field id="interest-organisation" label={values.audience === "charity" ? "Charity / organisation" : "Business / organisation"} value={values.organisation} onChange={(value) => update("organisation", value)} />
-          <Field id="interest-website" label="Website (optional)" type="url" value={values.website} error={errors.website} optional onChange={(value) => update("website", value)} />
+      <div
+        className={`interest-form-step interest-conditional ${values.audience === "supporter" ? "interest-conditional-collapsed" : ""}`}
+        aria-hidden={values.audience === "supporter"}
+      >
+        <div>
+          <div className="grid gap-8 sm:grid-cols-2">
+            <Field id="interest-organisation" label={values.audience === "charity" ? "Charity / organisation" : "Business / organisation"} value={values.organisation} disabled={values.audience === "supporter"} onChange={(value) => update("organisation", value)} />
+            <Field id="interest-website" label="Website (optional)" type="url" value={values.website} error={errors.website} optional disabled={values.audience === "supporter"} onChange={(value) => update("website", value)} />
+          </div>
         </div>
-      )}
+      </div>
 
       <div>
         <label htmlFor="interest-message" className="block font-display text-2xl leading-tight sm:text-3xl">What would you like to explore?</label>
@@ -145,7 +180,7 @@ export function InterestForm() {
         {errors.message && <p id="interest-message-error" className="mt-2 text-sm text-red-900">{errors.message}</p>}
       </div>
 
-      <div className="rounded-2xl border border-ocean-950/10 p-5">
+      <div className="interest-form-step rounded-2xl border border-ocean-950/10 p-5">
         <label className="flex gap-3 text-sm leading-6">
           <input type="checkbox" checked={values.updates} onChange={(event) => update("updates", event.target.checked)} className="mt-1 h-4 w-4 accent-ocean-900 focus:ring-2 focus:ring-ocean-700" />
           <span>I would like to receive updates about Buying for Good. <span className="text-ocean-950/50">Optional.</span></span>
@@ -153,11 +188,11 @@ export function InterestForm() {
         <p className="mt-3 pl-7 text-xs leading-5 text-ocean-950/50">This optional update preference is separate from sending your enquiry.</p>
       </div>
 
-      <div id="form-boundary-note" className="rounded-2xl bg-ocean-950/[0.04] p-5 text-xs leading-6 text-ocean-950/55">
+      <div id="form-boundary-note" className="interest-form-step "rounded-2xl bg-ocean-950/[0.04] p-5 text-xs leading-6 text-ocean-950/55">
         <strong className="font-semibold text-ocean-950/75">Demo integration boundary:</strong> this prototype has no submission API, email service, CRM connection, or database configured. The confirmation state below is therefore a local UI simulation only.
       </div>
 
-      <button type="submit" disabled={submitting} className="inline-flex min-h-12 items-center justify-center rounded-full bg-ocean-950 px-7 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-sand disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ocean-700 focus-visible:ring-offset-4">
+      <button type="submit" disabled={submitting} className="interest-form-step inline-flex min-h-12 items-center justify-center rounded-full bg-ocean-950 px-7 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-sand disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ocean-700 focus-visible:ring-offset-4">
         {submitting ? "Preparing…" : "Submit expression of interest"}
       </button>
     </form>
