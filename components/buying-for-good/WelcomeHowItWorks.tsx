@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PurchaseMoment } from "./PurchaseMoment";
 import { PurchaseRipple } from "./PurchaseRipple";
+import { PurchaseRipple } from "./PurchaseRipple";
 import { CharityCulmination } from "./CharityCulmination";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -92,10 +93,8 @@ export function WelcomeHowItWorks() {
             </h2>
           </div>
 
-          <div className="how-it-works-ripple pointer-events-none absolute left-1/2 top-1/2 z-0 h-[min(64vw,34rem)] w-[min(64vw,34rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border border-ocean-700/15">
-            <span className="absolute inset-[14%] rounded-full border border-ocean-700/12" />
-            <span className="absolute inset-[29%] rounded-full border border-ocean-700/12" />
-            <span className="absolute inset-[44%] rounded-full bg-ocean-700/8" />
+          <div className="how-it-works-ripple-wrap pointer-events-none absolute left-1/2 top-1/2 z-0 w-[min(64vw,34rem)] -translate-x-1/2 -translate-y-1/2">
+            <PurchaseRipple activeIndex={activeIndex} count={purchases.length} />
           </div>
 
           <div className="how-it-works-purchases absolute left-6 right-6 top-1/2 z-10 -translate-y-1/2 sm:left-10 sm:right-10 lg:left-16 lg:right-16">
