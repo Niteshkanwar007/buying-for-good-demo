@@ -4,6 +4,7 @@ import { WhatIfBigIdea } from "@/components/buying-for-good/WhatIfBigIdea";
 import { WelcomeHowItWorks } from "@/components/buying-for-good/WelcomeHowItWorks";
 import { WhyThisMattersTrust } from "@/components/buying-for-good/WhyThisMattersTrust";
 import { AudienceExperience } from "@/components/buying-for-good/AudienceExperience";
+import { FinalConversion } from "@/components/buying-for-good/FinalConversion";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <WelcomeHowItWorks />
       <WhyThisMattersTrust />
       <AudienceExperience />
+      <FinalConversion />
     </main>
   );
 }
