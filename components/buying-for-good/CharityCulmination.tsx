@@ -27,10 +27,10 @@ export function CharityCulmination() {
       opacity: 1,
       y: 0,
       scale: 1,
-      duration: 0.8,
-      stagger: 0.1,
+      duration: 1.05,
+      stagger: 0.14,
       ease: "power2.out",
-      scrollTrigger: { trigger: root.current, start: "top 76%", end: "top 28%", scrub: 0.8 },
+      scrollTrigger: { trigger: root.current, start: "top 82%", end: "top 30%", scrub: 1 },
     });
   }, { scope: root });
 
