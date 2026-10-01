@@ -17,7 +17,7 @@ export function FinalConversion() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const copy = root.current?.querySelector(".conversion-intro-copy");
     if (!copy) return;
-    const tl = gsap.fromTo(copy, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: copy, start: "top 84%", end: "top 58%", scrub: 0.8 } });
+    const tl = gsap.fromTo(copy, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.95, ease: "power2.out", scrollTrigger: { trigger: copy, start: "top 86%", end: "top 58%", scrub: 1 } });
     return () => tl.kill();
   }, { scope: root });
 
@@ -27,7 +27,7 @@ export function FinalConversion() {
 
       <section id="expression-interest" aria-labelledby="conversion-title" className="conversion-form-section border-t border-ocean-950/10 px-6 py-24 sm:px-10 sm:py-32 lg:px-16">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-          <div className="conversion-intro-copy max-w-md">
+          <div className="conversion-intro-copy max-w-md lg:sticky lg:top-24 lg:self-start">
             <p className="eyebrow">Shared expression of interest</p>
             <h2 id="conversion-title" className="mt-5 font-display text-[clamp(2.8rem,5vw,5.3rem)] leading-[0.93] tracking-[-0.05em]">
               Tell us where you fit.
