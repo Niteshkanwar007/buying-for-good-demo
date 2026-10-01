@@ -18,11 +18,11 @@ export function BigIdea() {
     if (!ring || !line) return;
 
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: root.current, start: "top 78%", end: "bottom 72%", scrub: 1 },
+      scrollTrigger: { trigger: root.current, start: "top 84%", end: "bottom 56%", scrub: 1.15 },
     });
-    tl.fromTo(ring, { scale: 0.72, opacity: 0 }, { scale: 1, opacity: 1, duration: 1, ease: "power2.out" })
-      .fromTo(line, { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 0.25)
-      .fromTo(".big-idea-copy", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: "power2.out" }, 0.35);
+    tl.fromTo(ring, { scale: 0.72, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.35, ease: "power2.out" })
+      .fromTo(line, { scaleX: 0 }, { scaleX: 1, duration: 1.05, ease: "power2.inOut" }, 0.25)
+      .fromTo(".big-idea-copy", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.95, ease: "power2.out" }, 0.35);
     return () => tl.kill();
   }, { scope: root });
 
