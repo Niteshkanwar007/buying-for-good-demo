@@ -5,10 +5,12 @@ import { WelcomeHowItWorks } from "@/components/buying-for-good/WelcomeHowItWork
 import { WhyThisMattersTrust } from "@/components/buying-for-good/WhyThisMattersTrust";
 import { AudienceExperience } from "@/components/buying-for-good/AudienceExperience";
 import { FinalConversion } from "@/components/buying-for-good/FinalConversion";
+import { ScrollTriggerRefresh } from "@/components/buying-for-good/ScrollTriggerRefresh";
 
 export default function Home() {
   return (
     <main>
+      <ScrollTriggerRefresh />
       <BuyingForGoodHero />
       <CuriosityUnderstanding />
       <WhatIfBigIdea />
