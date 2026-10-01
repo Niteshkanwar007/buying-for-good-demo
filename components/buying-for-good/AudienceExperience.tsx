@@ -60,6 +60,7 @@ export function AudienceExperience() {
   const [active, setActive] = useState<AudienceKey>("business");
   const root = useRef<HTMLElement>(null);
   const selected = audiences[active];
+  const choiceColumns = active === "business" ? "2.25fr 1fr 1fr" : active === "charity" ? "1fr 2.25fr 1fr" : "1fr 1fr 2.25fr";
 
   useGSAP(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -103,7 +104,7 @@ export function AudienceExperience() {
       </div>
 
       <div className="audience-choice-field px-6 pb-24 sm:px-10 sm:pb-32 lg:px-16">
-        <div className="audience-choice-grid mx-auto flex max-w-6xl flex-col gap-3 lg:grid lg:grid-cols-3 lg:items-stretch">
+        <div className="audience-choice-grid mx-auto flex max-w-6xl flex-col gap-3 lg:grid lg:grid-cols-3 lg:items-stretch" style={{ gridTemplateColumns: choiceColumns }}>
           {order.map((key) => {
             const item = audiences[key];
             const selectedState = active === key;
