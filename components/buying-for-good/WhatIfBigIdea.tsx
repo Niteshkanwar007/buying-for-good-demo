@@ -29,7 +29,7 @@ export function WhatIfBigIdea() {
       const cards = gsap.utils.toArray<HTMLElement>(".what-if-card");
       gsap.set(cards, { opacity: 0, y: 90, scale: 0.94, rotate: 1 });
       gsap.set(cards[0], { opacity: 1, y: 0, scale: 1, rotate: 0 });
-      const tl = gsap.timeline({ scrollTrigger: { trigger: root.current, start: "top top", end: "+=460%", scrub: 1.25, pin: true, anticipatePin: 1 } });
+      const tl = gsap.timeline({ scrollTrigger: { trigger: root.current, start: "top top", end: "+=300%", scrub: 1.25, pin: true, anticipatePin: 1 } });
 
       cards.forEach((card, index) => {
         if (index === 0) tl.to(card, { y: -12, scale: 1.01, duration: 0.62, ease: "none" });
