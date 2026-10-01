@@ -81,3 +81,55 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .what-if-card { opacity: 1 !important; transform: none !important; }
 }
+
+
+@layer components {
+  .how-it-works-section { min-height: 100svh; }
+  .how-it-works-stage { isolation: isolate; }
+  .purchase-moment,
+  .purchase-ripple,
+  .charity-photo { will-change: transform, opacity; }
+  .how-it-works-purchase-slot { pointer-events: none; }
+  .how-it-works-purchase-slot .purchase-moment { pointer-events: auto; }
+}
+
+@media (max-width: 767px) {
+  .how-it-works-section { padding: 7rem 1.25rem 5rem; }
+  .how-it-works-stage { min-height: auto; padding-bottom: 1rem; }
+  .how-it-works-section > .how-it-works-stage { display: grid; gap: 3rem; }
+  .how-it-works-stage > .absolute.left-6 { position: relative; inset: auto; }
+  .how-it-works-purchases {
+    position: relative;
+    inset: auto;
+    transform: none;
+    order: 2;
+  }
+  .how-it-works-purchases > div { display: grid; gap: 1rem; max-width: none; }
+  .how-it-works-purchase-slot {
+    position: relative;
+    inset: auto;
+  }
+  .how-it-works-ripple-wrap {
+    position: absolute;
+    top: 55%;
+    width: 110vw;
+    opacity: 0.72;
+  }
+  .how-it-works-transition {
+    position: relative;
+    inset: auto;
+    width: auto;
+    transform: none;
+    order: 3;
+    opacity: 1;
+  }
+  .how-it-works-progress { position: relative; inset: auto; order: 4; margin-top: 1rem; }
+  .charity-culmination { padding-top: 6rem; }
+  .charity-photo-grid { margin-top: 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .purchase-moment,
+  .purchase-ripple,
+  .charity-photo { will-change: auto; }
+}
