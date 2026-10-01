@@ -52,9 +52,9 @@ export function FinalConversion() {
               For general enquiries, use the contact pathway. It is separate from the expression-of-interest form and does not subscribe you to updates.
             </p>
           </div>
-          <a href="mailto:PLACEHOLDER" onClick={(event) => event.preventDefault()} className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-sand/20 px-5 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand focus:outline-none focus-visible:ring-2 focus-visible:ring-sand/80">
-            Contact pathway — address to be supplied
-          </a>
+          <span className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-sand/20 px-5 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-sand/70">
+            Contact details — to be supplied
+          </span>
         </div>
       </section>
 
