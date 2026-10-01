@@ -26,7 +26,7 @@ const audiences: Record<AudienceKey, Audience> = {
     label: "Business",
     index: "01",
     perspective: "Build the purchase around a wider purpose.",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2200&q=80",
+    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72",
     imageAlt: "People gathered around a table in a bright workspace",
     title: "Business perspective",
     description: "Approved business perspective and benefit detail to be confirmed from the final brief.",
@@ -36,7 +36,7 @@ const audiences: Record<AudienceKey, Audience> = {
     label: "Charity",
     index: "02",
     perspective: "Bring charitable purpose closer to everyday purchasing.",
-    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=2200&q=80",
+    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a",
     imageAlt: "People joining hands together in a circle",
     title: "Charity perspective",
     description: "Approved charity perspective and benefit detail to be confirmed from the final brief.",
@@ -46,7 +46,7 @@ const audiences: Record<AudienceKey, Audience> = {
     label: "Supporter",
     index: "03",
     perspective: "Make an everyday purchase part of something shared.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=2200&q=80",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d",
     imageAlt: "Person choosing products while shopping",
     title: "Supporter perspective",
     description: "Approved supporter perspective and benefit detail to be confirmed from the final brief.",
@@ -140,9 +140,13 @@ export function AudienceExperience() {
       <div id="audience-panel" className="audience-benefits border-y border-sand/10 bg-sand text-ocean-950" aria-live="polite">
         <div className="mx-auto grid max-w-6xl lg:grid-cols-[0.82fr_1.18fr]">
           <div className="relative min-h-[25rem] overflow-hidden lg:min-h-[38rem]">
-            <Image key={selected.image} src={selected.image} alt="" fill sizes="(max-width: 1023px) 100vw, 41vw" className="audience-focus-image object-cover object-center" aria-hidden="true" />
-            <div className="absolute inset-0 bg-ocean-950/18" aria-hidden="true" />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ocean-950/70 to-transparent p-7 text-sand sm:p-10">
+            {order.map((key) => (
+              <div key={key} className={`audience-focus-layer absolute inset-0 transition-[opacity,transform] duration-500 ease-out ${active === key ? "opacity-100 scale-100" : "pointer-events-none opacity-0 scale-[1.015]"}`} aria-hidden={active !== key}>
+                <Image src={audiences[key].image} alt="" fill sizes="(max-width: 1023px) 100vw, 41vw" priority={key === "business"} className="audience-focus-image object-cover object-center" />
+              </div>
+            ))}
+            <div className="absolute inset-0 bg-ocean-950/12" aria-hidden="true" />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ocean-950/72 to-transparent p-7 text-sand sm:p-10">
               <span className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-sand/65">Selected perspective</span>
               <p className="mt-2 font-display text-3xl">{selected.label}</p>
             </div>
