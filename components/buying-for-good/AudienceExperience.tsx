@@ -27,9 +27,9 @@ const audiences: Record<AudienceKey, Audience> = {
     perspective: "Build the purchase around a wider purpose.",
     image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=76",
     imageAlt: "People gathered around a table in a bright workspace",
-    title: "[Business benefits to be supplied]",
-    description: "Placeholder for the approved business perspective and benefit language from the Buying for Good brief.",
-    benefits: ["[Approved business benefit / participation detail]", "[Approved customer or commerce-related benefit]", "[Approved operational or ecosystem detail]"],
+    title: "Business perspective",
+    description: "Approved business perspective and benefit detail to be confirmed from the final brief.",
+    benefits: ["Participation detail to be confirmed", "Benefit detail to be confirmed", "Ecosystem detail to be confirmed"],
   },
   charity: {
     label: "Charity",
@@ -37,9 +37,9 @@ const audiences: Record<AudienceKey, Audience> = {
     perspective: "Bring charitable purpose closer to everyday purchasing.",
     image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1800&q=76",
     imageAlt: "People joining hands together in a circle",
-    title: "[Charity benefits to be supplied]",
-    description: "Placeholder for the approved charity perspective and benefit language from the Buying for Good brief.",
-    benefits: ["[Approved charity participation detail]", "[Approved charitable-impact or connection detail]", "[Approved ecosystem detail]"],
+    title: "Charity perspective",
+    description: "Approved charity perspective and benefit detail to be confirmed from the final brief.",
+    benefits: ["Participation detail to be confirmed", "Benefit detail to be confirmed", "Ecosystem detail to be confirmed"],
   },
   supporter: {
     label: "Supporter",
@@ -47,9 +47,9 @@ const audiences: Record<AudienceKey, Audience> = {
     perspective: "Make an everyday purchase part of something shared.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1800&q=76",
     imageAlt: "Person choosing products while shopping",
-    title: "[Supporter benefits to be supplied]",
-    description: "Placeholder for the approved supporter perspective and benefit language from the Buying for Good brief.",
-    benefits: ["[Approved supporter participation detail]", "[Approved purchase or giving detail]", "[Approved experience detail]"],
+    title: "Supporter perspective",
+    description: "Approved supporter perspective and benefit detail to be confirmed from the final brief.",
+    benefits: ["Participation detail to be confirmed", "Benefit detail to be confirmed", "Experience detail to be confirmed"],
   },
 };
 
@@ -172,7 +172,7 @@ export function AudienceExperience() {
         <div className="mx-auto max-w-5xl border-t border-ocean-950/12 pt-12 sm:pt-16">
           <p className="eyebrow">Shared next step</p>
           <h2 id="interest-title" className="mt-5 max-w-4xl font-display text-[clamp(2.8rem,6vw,5.8rem)] leading-[0.92] tracking-[-0.05em]">Ready to explore a place in the ecosystem?</h2>
-          <p className="mt-7 max-w-2xl text-base leading-8 text-ocean-950/62">[Expression-of-interest introduction to be supplied from the approved Buying for Good brief.]</p>
+          <p className="mt-7 max-w-2xl text-base leading-8 text-ocean-950/62">Approved expression-of-interest introduction to be confirmed from the final brief.</p>
           <a href="#expression-interest" className="mt-9 inline-flex min-h-12 items-center justify-center rounded-full bg-ocean-950 px-6 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-sand focus:outline-none focus-visible:ring-2 focus-visible:ring-ocean-700 focus-visible:ring-offset-4">Express your interest</a>
         </div>
       </section>
@@ -183,9 +183,9 @@ export function AudienceExperience() {
 function AudienceFaq({ active }: { active: AudienceKey }) {
   const [open, setOpen] = useState<string | null>(null);
   const groups = [
-    { id: "how", question: "How does this audience take part?", answer: `[Approved participation explanation for ${audiences[active].label.toLowerCase()} to be supplied.]` },
-    { id: "what", question: "What would happen after registering interest?", answer: "[Approved next-step and expression-of-interest process to be supplied.]" },
-    { id: "clarity", question: "Where can I understand the model in more detail?", answer: "[Approved documentation, governance, financial and operational detail to be supplied.]" },
+    { id: "how", question: "How does this audience take part?", answer: `Approved participation explanation to be confirmed from the final brief.` },
+    { id: "what", question: "What would happen after registering interest?", answer: "Approved next-step process to be confirmed from the final brief." },
+    { id: "clarity", question: "Where can I understand the model in more detail?", answer: "Approved documentation and governance detail to be confirmed from the final brief." },
   ];
 
   return (
