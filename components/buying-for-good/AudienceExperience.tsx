@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -25,7 +26,7 @@ const audiences: Record<AudienceKey, Audience> = {
     label: "Business",
     index: "01",
     perspective: "Build the purchase around a wider purpose.",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=76",
+    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2200&q=80",
     imageAlt: "People gathered around a table in a bright workspace",
     title: "Business perspective",
     description: "Approved business perspective and benefit detail to be confirmed from the final brief.",
@@ -35,7 +36,7 @@ const audiences: Record<AudienceKey, Audience> = {
     label: "Charity",
     index: "02",
     perspective: "Bring charitable purpose closer to everyday purchasing.",
-    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1800&q=76",
+    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=2200&q=80",
     imageAlt: "People joining hands together in a circle",
     title: "Charity perspective",
     description: "Approved charity perspective and benefit detail to be confirmed from the final brief.",
@@ -45,7 +46,7 @@ const audiences: Record<AudienceKey, Audience> = {
     label: "Supporter",
     index: "03",
     perspective: "Make an everyday purchase part of something shared.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1800&q=76",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=2200&q=80",
     imageAlt: "Person choosing products while shopping",
     title: "Supporter perspective",
     description: "Approved supporter perspective and benefit detail to be confirmed from the final brief.",
@@ -67,8 +68,8 @@ export function AudienceExperience() {
     if (!panel || !image) return;
 
     const tl = gsap.timeline();
-    tl.fromTo(panel, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" })
-      .fromTo(image, { scale: 1.04 }, { scale: 1, duration: 0.95, ease: "power2.out" }, 0);
+    tl.fromTo(panel, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.82, ease: "power2.out" })
+      .fromTo(image, { scale: 1.045, opacity: 0.78 }, { scale: 1, opacity: 1, duration: 1.15, ease: "power2.out" }, 0);
     return () => tl.kill();
   }, { dependencies: [active], scope: root });
 
@@ -116,9 +117,9 @@ export function AudienceExperience() {
                 onClick={() => selectAudience(key)}
                 className={`audience-choice group relative min-h-[18rem] overflow-hidden rounded-[1.5rem] border text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sand/90 focus-visible:ring-offset-4 focus-visible:ring-offset-ocean-950 lg:min-h-[34rem] ${selectedState ? "audience-choice-active lg:flex-[2.25]" : "lg:flex-1"} border-sand/12`}
               >
-                <img src={item.image} alt={item.imageAlt} loading={key === "business" ? "eager" : "lazy"} decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]" />
-                <span className="absolute inset-0 bg-gradient-to-t from-ocean-950 via-ocean-950/35 to-ocean-950/5" aria-hidden="true" />
-                <span className="absolute inset-0 bg-ocean-950/20 transition-opacity duration-500 group-hover:bg-ocean-950/10" aria-hidden="true" />
+                <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 767px) 100vw, 33vw" priority={key === "business"} className="absolute inset-0 object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]" />
+                <span className="absolute inset-0 bg-gradient-to-t from-ocean-950 via-ocean-950/30 to-ocean-950/5" aria-hidden="true" />
+                <span className="absolute inset-0 bg-ocean-950/14 transition-opacity duration-700 group-hover:bg-ocean-950/5" aria-hidden="true" />
                 <span className="relative flex h-full min-h-[18rem] flex-col justify-between p-6 sm:p-8 lg:min-h-[34rem]">
                   <span className="flex items-center justify-between">
                     <span className="text-[0.58rem] font-semibold uppercase tracking-[0.24em] text-sand/60">{item.index}</span>
@@ -139,7 +140,7 @@ export function AudienceExperience() {
       <div id="audience-panel" className="audience-benefits border-y border-sand/10 bg-sand text-ocean-950" aria-live="polite">
         <div className="mx-auto grid max-w-6xl lg:grid-cols-[0.82fr_1.18fr]">
           <div className="relative min-h-[25rem] overflow-hidden lg:min-h-[38rem]">
-            <img src={selected.image} alt="" aria-hidden="true" className="audience-focus-image absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+            <Image key={selected.image} src={selected.image} alt="" fill sizes="(max-width: 1023px) 100vw, 41vw" className="audience-focus-image object-cover object-center" aria-hidden="true" />
             <div className="absolute inset-0 bg-ocean-950/18" aria-hidden="true" />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ocean-950/70 to-transparent p-7 text-sand sm:p-10">
               <span className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-sand/65">Selected perspective</span>
