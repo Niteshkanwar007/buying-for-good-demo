@@ -9,21 +9,21 @@ type Stakeholder = "business" | "charity" | "supporter";
 const stakeholders: Record<Stakeholder, { label: string; title: string; description: string; points: string[] }> = {
   business: {
     label: "Business",
-    title: "[Business perspective to be supplied]",
-    description: "Approved business perspective and benefit language to be supplied from the final Buying for Good brief.",
-    points: ["[Approved business participation detail]", "[Approved business benefit detail]"],
+    title: "Business perspective",
+    description: "Approved business perspective and benefit detail to be confirmed from the final brief.",
+    points: ["Participation detail to be confirmed", "Benefit detail to be confirmed"],
   },
   charity: {
     label: "Charity",
-    title: "[Charity perspective to be supplied]",
-    description: "Approved charity perspective and benefit language to be supplied from the final Buying for Good brief.",
-    points: ["[Approved charity participation detail]", "[Approved charity benefit detail]"],
+    title: "Charity perspective",
+    description: "Approved charity perspective and benefit detail to be confirmed from the final brief.",
+    points: ["Participation detail to be confirmed", "Benefit detail to be confirmed"],
   },
   supporter: {
     label: "Supporter",
-    title: "[Supporter perspective to be supplied]",
-    description: "Approved supporter perspective and benefit language to be supplied from the final Buying for Good brief.",
-    points: ["[Approved supporter participation detail]", "[Approved supporter benefit detail]"],
+    title: "Supporter perspective",
+    description: "Approved supporter perspective and benefit detail to be confirmed from the final brief.",
+    points: ["Participation detail to be confirmed", "Benefit detail to be confirmed"],
   },
 };
 
