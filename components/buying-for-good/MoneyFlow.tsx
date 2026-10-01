@@ -27,10 +27,10 @@ export function MoneyFlow() {
       {
         opacity: 1,
         y: 0,
-        duration: 1,
-        stagger: 0.16,
+        duration: 1.2,
+        stagger: 0.2,
         ease: "power2.out",
-        scrollTrigger: { trigger: root.current, start: "top 78%", end: "top 40%", scrub: 0.8 },
+        scrollTrigger: { trigger: root.current, start: "top 82%", end: "top 32%", scrub: 1.1 },
       }
     );
   }, { scope: root });
