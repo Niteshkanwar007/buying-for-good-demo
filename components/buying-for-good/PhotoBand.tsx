@@ -8,7 +8,7 @@ type PhotoBandProps = {
   priority?: boolean;
 };
 
-export function PhotoBand({ src, alt, label, index }: PhotoBandProps) {
+export function PhotoBand({ src, alt, label, index, priority = false }: PhotoBandProps) {
   return (
     <figure
       className="understanding-photo absolute left-1/2 w-[120vw] -translate-x-1/2 overflow-hidden opacity-0 sm:w-[110vw]"
