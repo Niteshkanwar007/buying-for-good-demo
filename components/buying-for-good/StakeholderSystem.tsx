@@ -58,7 +58,7 @@ export function StakeholderSystem() {
                   onKeyDown={(event) => {
                     if (!["ArrowRight","ArrowDown","ArrowLeft","ArrowUp"].includes(event.key)) return;
                     event.preventDefault();
-                    const keys = Object.keys(stakeholders) as Stakeholder[];
+                    const keys = audienceOrder;
                     const delta = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
                     const next = keys[(keys.indexOf(key) + delta + keys.length) % keys.length];
                     setActive(next);
