@@ -147,7 +147,7 @@ export function InterestForm() {
         </div>
       </fieldset>
 
-      <div className="grid gap-8 sm:grid-cols-2">
+      <div className="interest-form-step grid gap-8 sm:grid-cols-2">
         <Field id="interest-name" label="Name" value={values.name} error={errors.name} required onChange={(value) => update("name", value)} />
         <Field id="interest-email" label="Email" type="email" value={values.email} error={errors.email} required onChange={(value) => update("email", value)} />
       </div>
@@ -164,7 +164,7 @@ export function InterestForm() {
         </div>
       </div>
 
-      <div>
+      <div className="interest-form-step">
         <label htmlFor="interest-message" className="block font-display text-2xl leading-tight sm:text-3xl">What would you like to explore?</label>
         <textarea
           id="interest-message"
@@ -188,7 +188,7 @@ export function InterestForm() {
         <p className="mt-3 pl-7 text-xs leading-5 text-ocean-950/50">This optional update preference is separate from sending your enquiry.</p>
       </div>
 
-      <div id="form-boundary-note" className="interest-form-step "rounded-2xl bg-ocean-950/[0.04] p-5 text-xs leading-6 text-ocean-950/55">
+      <div id="form-boundary-note" className="interest-form-step rounded-2xl bg-ocean-950/[0.04] p-5 text-xs leading-6 text-ocean-950/55">
         <strong className="font-semibold text-ocean-950/75">Demo integration boundary:</strong> this prototype has no submission API, email service, CRM connection, or database configured. The confirmation state below is therefore a local UI simulation only.
       </div>
 
@@ -207,6 +207,7 @@ function Field({
   type = "text",
   required = false,
   optional = false,
+  disabled = false,
   onChange,
 }: {
   id: string;
@@ -216,6 +217,7 @@ function Field({
   type?: string;
   required?: boolean;
   optional?: boolean;
+  disabled?: boolean;
   onChange: (value: string) => void;
 }) {
   const errorId = `${id}-error`;
@@ -230,6 +232,7 @@ function Field({
         type={type}
         value={value}
         required={required}
+        disabled={disabled}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? errorId : undefined}
         onChange={(event) => onChange(event.target.value)}
