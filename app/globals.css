@@ -178,3 +178,27 @@ body {
   .audience-choice,
   .audience-focus-image { will-change: auto; transition: none; }
 }
+
+
+@layer components {
+  .jigsaw-invitation { isolation: isolate; }
+  .jigsaw-piece,
+  .jigsaw-ripple,
+  .jigsaw-line { will-change: transform, opacity; }
+  .conversion-chapter { isolation: isolate; }
+  .conversion-form-section { scroll-margin-top: 1rem; }
+  .conversion-confirmation { min-height: 24rem; display: flex; flex-direction: column; justify-content: center; }
+  .site-footer a { transition: opacity 180ms ease; }
+  .site-footer a:hover { opacity: .95; }
+}
+@media (max-width: 767px) {
+  .jigsaw-invitation { padding-top: 6.5rem; padding-bottom: 6.5rem; }
+  .conversion-form-section { padding-top: 6.5rem; padding-bottom: 6.5rem; }
+  .conversion-confirmation { min-height: 20rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jigsaw-piece,
+  .jigsaw-ripple,
+  .jigsaw-line { will-change: auto; }
+  .site-footer a { transition: none; }
+}
