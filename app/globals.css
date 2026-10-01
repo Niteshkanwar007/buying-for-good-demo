@@ -133,3 +133,26 @@ body {
   .purchase-ripple,
   .charity-photo { will-change: auto; }
 }
+
+
+@layer components {
+  .trust-chapter { isolation: isolate; }
+  .trust-transition-ring { will-change: transform, opacity; }
+  .money-flow-node,
+  .money-flow-connector { will-change: transform, opacity; }
+}
+
+@media (max-width: 767px) {
+  .trust-transition { padding-top: 8rem; padding-bottom: 8rem; }
+  .trust-transition-statement { max-width: 24rem; }
+  .trust-money-flow { padding-top: 6.5rem; padding-bottom: 6.5rem; }
+  .trust-governance { padding-top: 6.5rem; padding-bottom: 6.5rem; }
+  .trust-promise { padding-top: 7rem; padding-bottom: 7rem; }
+  .trust-next { padding-top: 6rem; padding-bottom: 7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-transition-ring,
+  .money-flow-node,
+  .money-flow-connector { will-change: auto; }
+}
