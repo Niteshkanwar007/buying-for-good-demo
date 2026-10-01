@@ -9,21 +9,21 @@ type Stakeholder = "business" | "charity" | "supporter";
 const stakeholders: Record<Stakeholder, { label: string; title: string; description: string; points: string[] }> = {
   business: {
     label: "Business",
-    title: "A way to connect commerce with purpose.",
-    description: "Buying for Good gives a business a clear place within a shared charitable model, connecting its everyday customer relationship with giving.",
-    points: ["Participate in the shared model", "Give customers a clearer purpose for a purchase"],
+    title: "[Business perspective to be supplied]",
+    description: "Approved business perspective and benefit language to be supplied from the final Buying for Good brief.",
+    points: ["[Approved business participation detail]", "[Approved business benefit detail]"],
   },
   charity: {
     label: "Charity",
-    title: "A new connection to everyday giving.",
-    description: "Charities become part of the relationship between businesses and supporters, creating a direct place for charitable impact within the purchase journey.",
-    points: ["Be part of a shared giving ecosystem", "Connect charitable impact with everyday purchases"],
+    title: "[Charity perspective to be supplied]",
+    description: "Approved charity perspective and benefit language to be supplied from the final Buying for Good brief.",
+    points: ["[Approved charity participation detail]", "[Approved charity benefit detail]"],
   },
   supporter: {
     label: "Supporter",
-    title: "Make a purchase and know it can mean more.",
-    description: "Supporters can choose to participate through the purchases they already make, bringing charitable purpose closer to everyday life.",
-    points: ["Discover a more meaningful way to buy", "Support charitable impact through everyday purchases"],
+    title: "[Supporter perspective to be supplied]",
+    description: "Approved supporter perspective and benefit language to be supplied from the final Buying for Good brief.",
+    points: ["[Approved supporter participation detail]", "[Approved supporter benefit detail]"],
   },
 };
 
