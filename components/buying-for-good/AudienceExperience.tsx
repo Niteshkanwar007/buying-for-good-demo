@@ -159,7 +159,7 @@ export function AudienceExperience() {
                 </li>
               ))}
             </ul>
-            <button type="button" onClick={() => document.getElementById("audience-faq")?.scrollIntoView({ behavior: "smooth", block: "start" })} className="mt-10 inline-flex items-center gap-3 border-b border-ocean-950/25 pb-2 text-[0.66rem] font-semibold uppercase tracking-[0.2em] focus:outline-none focus-visible:ring-2 focus-visible:ring-ocean-700 focus-visible:ring-offset-4">
+            <button type="button" onClick={() => document.getElementById("audience-faq")?.scrollIntoView({ block: "start" })} className="mt-10 inline-flex items-center gap-3 border-b border-ocean-950/25 pb-2 text-[0.66rem] font-semibold uppercase tracking-[0.2em] focus:outline-none focus-visible:ring-2 focus-visible:ring-ocean-700 focus-visible:ring-offset-4">
               Questions about this path <span aria-hidden="true">↓</span>
             </button>
           </div>
