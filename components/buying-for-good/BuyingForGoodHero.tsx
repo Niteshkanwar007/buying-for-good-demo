@@ -66,7 +66,7 @@ export function BuyingForGoodHero() {
       <div className="hero-content relative z-10 flex min-h-[100svh] items-center px-6 pb-20 pt-28 sm:px-10 sm:pb-24 lg:px-16">
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-4xl">
-            <p className="hero-kicker eyebrow text-white/80">Australian made. Global impact.</p>
+            <p className="hero-kicker eyebrow text-white/80">A shared idea, starting here.</p>
 
             <h1
               id="hero-title"
