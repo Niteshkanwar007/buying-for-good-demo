@@ -156,3 +156,25 @@ body {
   .money-flow-node,
   .money-flow-connector { will-change: auto; }
 }
+
+
+@layer components {
+  .audience-chapter { isolation: isolate; }
+  .audience-choice { transition: flex 700ms cubic-bezier(.22,1,.36,1), border-color 450ms ease, transform 450ms ease; }
+  .audience-choice-active { border-color: rgba(245,241,232,.38); }
+  .audience-choice:focus-visible { transform: translateY(-2px); }
+  .audience-focus-image { will-change: transform; }
+}
+@media (max-width: 767px) {
+  .audience-choice { min-height: 22rem; }
+  .audience-choice:not(.audience-choice-active) { min-height: 10rem; }
+  .audience-choice:not(.audience-choice-active) > span { min-height: 10rem; }
+  .audience-choice-active > span { min-height: 22rem; }
+  .audience-choice-field { padding-bottom: 6.5rem; }
+  .audience-benefits { scroll-margin-top: 1rem; }
+  .audience-interest { padding-top: 7rem; padding-bottom: 7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audience-choice,
+  .audience-focus-image { will-change: auto; transition: none; }
+}
