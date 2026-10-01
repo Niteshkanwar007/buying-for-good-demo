@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -7,6 +8,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ImpactRipple } from "./ImpactRipple";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const heroImage =
+  "https://images.unsplash.com/photo-1770035034135-7d08040c6bc6?auto=format&fit=crop&w=2400&q=82";
 
 export function BuyingForGoodHero() {
   const root = useRef<HTMLElement>(null);
@@ -42,6 +46,7 @@ export function BuyingForGoodHero() {
         });
 
         story
+          .to(".hero-media", { scale: 1.06, yPercent: -2, ease: "none" }, 0)
           .to(".hero-content", { yPercent: -15, opacity: 0.78, ease: "none" }, 0)
           .to(".story-glow", { scale: 1.24, opacity: 0.92, ease: "none" }, 0)
           .to(".hero-sun", { scale: 0.72, yPercent: 12, opacity: 0.3, ease: "none" }, 0)
@@ -51,7 +56,8 @@ export function BuyingForGoodHero() {
 
       mm.add("(max-width: 767px)", () => {
         gsap.timeline({ defaults: { ease: "power2.out" } })
-          .fromTo(".story-glow", { scale: 0.92, opacity: 0.45 }, { scale: 1.04, opacity: 0.82, duration: 1.5 })
+          .fromTo(".hero-media", { scale: 1.02 }, { scale: 1.05, duration: 3.2 })
+          .fromTo(".story-glow", { scale: 0.92, opacity: 0.45 }, { scale: 1.04, opacity: 0.82, duration: 1.5 }, 0)
           .fromTo(".hero-ripple", { opacity: 0.35, scale: 0.94 }, { opacity: 0.82, scale: 1, duration: 1.7 }, "<0.25");
       });
 
@@ -62,9 +68,19 @@ export function BuyingForGoodHero() {
 
   return (
     <section ref={root} className="hero-shell" aria-labelledby="hero-title">
+      <Image
+        src={heroImage}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="hero-media object-cover object-[center_56%]"
+        aria-hidden="true"
+      />
+      <div className="hero-media-overlay absolute inset-0 z-[-1]" aria-hidden="true" />
       <div className="hero-horizon" aria-hidden="true" />
       <div className="hero-water" aria-hidden="true" />
-      <div className="hero-sun absolute left-1/2 top-[24%] z-[-1] h-28 w-28 -translate-x-1/2 rounded-full bg-[#ffe3aa]/75 blur-[1px] shadow-[0_0_100px_rgba(255,224,168,0.42)] sm:h-40 sm:w-40" aria-hidden="true" />
+      <div className="hero-sun absolute left-1/2 top-[24%] z-[-1] h-28 w-28 -translate-x-1/2 rounded-full bg-[#ffe3aa]/55 blur-[1px] shadow-[0_0_100px_rgba(255,224,168,0.34)] sm:h-40 sm:w-40" aria-hidden="true" />
       <div className="story-glow" aria-hidden="true" />
       <ImpactRipple />
 
@@ -88,7 +104,7 @@ export function BuyingForGoodHero() {
               <span className="hero-title-line block italic text-[#d9eee8]">leaves a mark.</span>
             </h1>
 
-            <p className="hero-copy mt-8 max-w-xl text-base leading-7 text-white/78 sm:text-lg sm:leading-8">
+            <p className="hero-copy mt-8 max-w-xl text-base leading-7 text-white/82 sm:text-lg sm:leading-8">
               What if the things we choose every day could create a little more good?
               This is where the story begins.
             </p>
