@@ -46,7 +46,7 @@ body {
   .hero-water { position:absolute; inset:58% -5% 0; background:repeating-linear-gradient(178deg,rgba(223,244,238,.08) 0,rgba(223,244,238,.08) 1px,transparent 1px,transparent 14px); opacity:.65; mask-image:linear-gradient(to bottom,transparent,black 22%,black); pointer-events:none; }
   .purchase-moment-image,
   .understanding-photo-image,
-  .audience-focus-image { will-change: transform; }
+  .audience-focus-image { will-change: transform, opacity; }
   .story-glow { position:absolute; left:50%; top:48%; width:min(58vw,760px); aspect-ratio:1; border-radius:999px; border:1px solid rgba(231,246,236,.2); transform:translate(-50%,-50%); box-shadow:0 0 80px rgba(255,222,163,.14),inset 0 0 90px rgba(255,222,163,.08); pointer-events:none; }
   .story-glow::before,.story-glow::after { content:""; position:absolute; inset:12%; border:1px solid rgba(231,246,236,.12); border-radius:inherit; }
   .story-glow::after { inset:28%; border-color:rgba(231,246,236,.16); }
@@ -175,7 +175,7 @@ body {
 
 @layer components {
   .audience-chapter { isolation: isolate; }
-  .audience-choice { transition: flex 700ms cubic-bezier(.22,1,.36,1), border-color 450ms ease, transform 450ms ease; }
+  .audience-choice { transition: border-color 450ms ease, transform 450ms ease; }
   .audience-choice-active { border-color: rgba(245,241,232,.38); }
   .audience-choice:focus-visible { transform: translateY(-2px); }
   .audience-focus-image { will-change: transform; }
@@ -239,4 +239,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .interest-form-step { will-change: auto; }
   .interest-conditional { transition: none; }
+}
+
+
+@layer components {
+  .audience-focus-layer { will-change: opacity, transform; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audience-focus-layer { transition: none !important; transform: none !important; }
 }
