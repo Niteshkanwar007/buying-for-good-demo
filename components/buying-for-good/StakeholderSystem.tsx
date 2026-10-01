@@ -3,24 +3,25 @@
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { audienceLabels, audienceOrder, type AudienceKey } from "./audienceRoles";
 
-type Stakeholder = "business" | "charity" | "supporter";
+type Stakeholder = AudienceKey;
 
 const stakeholders: Record<Stakeholder, { label: string; title: string; description: string; points: string[] }> = {
   business: {
-    label: "Business",
+    label: audienceLabels.business,
     title: "Business perspective",
     description: "Approved business perspective and benefit detail to be confirmed from the final brief.",
     points: ["Participation detail to be confirmed", "Benefit detail to be confirmed"],
   },
   charity: {
-    label: "Charity",
+    label: audienceLabels.charity,
     title: "Charity perspective",
     description: "Approved charity perspective and benefit detail to be confirmed from the final brief.",
     points: ["Participation detail to be confirmed", "Benefit detail to be confirmed"],
   },
   supporter: {
-    label: "Supporter",
+    label: audienceLabels.supporter,
     title: "Supporter perspective",
     description: "Approved supporter perspective and benefit detail to be confirmed from the final brief.",
     points: ["Participation detail to be confirmed", "Benefit detail to be confirmed"],
@@ -48,7 +49,7 @@ export function StakeholderSystem() {
         </div>
         <div className="mt-14 grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-stretch lg:gap-16">
           <div role="tablist" aria-label="Buying for Good stakeholder groups" className="grid grid-cols-3 gap-2 lg:grid-cols-1 lg:gap-3">
-            {(Object.keys(stakeholders) as Stakeholder[]).map((key) => {
+            {(audienceOrder).map((key) => {
               const item = stakeholders[key];
               const selected = key === active;
               return (
@@ -64,7 +65,7 @@ export function StakeholderSystem() {
                     document.getElementById(`stakeholder-tab-${next}`)?.focus();
                   }}
                   className={`group rounded-2xl border px-4 py-4 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sand/80 lg:px-6 lg:py-5 ${selected ? "border-sand/45 bg-sand text-ocean-950" : "border-sand/15 bg-white/[0.03] text-sand hover:border-sand/30"}`}>
-                  <span className="block text-[0.6rem] font-semibold uppercase tracking-[0.22em] opacity-55">0{Object.keys(stakeholders).indexOf(key) + 1}</span>
+                  <span className="block text-[0.6rem] font-semibold uppercase tracking-[0.22em] opacity-55">0{audienceOrder.indexOf(key) + 1}</span>
                   <span className="mt-2 block font-display text-xl sm:text-2xl">{item.label}</span>
                 </button>
               );
