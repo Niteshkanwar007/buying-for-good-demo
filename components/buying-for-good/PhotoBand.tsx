@@ -25,7 +25,7 @@ export function PhotoBand({ src, alt, label, index }: PhotoBandProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-ocean-950/60 via-transparent to-ocean-950/30" />
         <figcaption className="absolute inset-x-6 bottom-5 flex items-center justify-between text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-white/80 sm:inset-x-10">
           <span>{label}</span>
-          <span aria-hidden="true">Australia / 01</span>
+          <span aria-hidden="true">Buying for Good</span>
         </figcaption>
       </div>
     </figure>
