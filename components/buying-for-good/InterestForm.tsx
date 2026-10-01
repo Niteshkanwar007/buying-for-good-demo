@@ -38,7 +38,7 @@ function validate(values: FormValues): FormErrors {
   if (!values.email.trim()) errors.email = "Please enter your email address.";
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) errors.email = "Please enter a valid email address.";
   if (!values.message.trim()) errors.message = "Please tell us briefly what you are interested in.";
-  if (values.website.trim() && !/^https?:\\/\\/[^\\s]+$/i.test(values.website.trim())) errors.website = "Please enter a full website address, including https://.";
+  if (values.website.trim() && !/^https?:\/\/[^\s]+$/i.test(values.website.trim())) errors.website = "Please enter a full website address, including https://.";
   return errors;
 }
 
@@ -52,7 +52,8 @@ export function InterestForm() {
   const confirmationHeading = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    if (!submitted && attempted && Object.keys(errors).length) firstError.current?.focus();
+    if (submitted) confirmationHeading.current?.focus();
+    else if (attempted && Object.keys(errors).length) firstError.current?.focus();
   }, [attempted, errors, submitted]);
 
   const update = <K extends keyof FormValues>(key: K, value: FormValues[K]) => {
