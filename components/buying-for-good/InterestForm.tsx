@@ -38,6 +38,7 @@ function validate(values: FormValues): FormErrors {
   if (!values.email.trim()) errors.email = "Please enter your email address.";
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) errors.email = "Please enter a valid email address.";
   if (!values.message.trim()) errors.message = "Please tell us briefly what you are interested in.";
+  if (values.website.trim() && !/^https?:\\/\\/[^\\s]+$/i.test(values.website.trim())) errors.website = "Please enter a full website address, including https://.";
   return errors;
 }
 
@@ -48,6 +49,7 @@ export function InterestForm() {
   const [attempted, setAttempted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const firstError = useRef<HTMLDivElement>(null);
+  const confirmationHeading = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     if (!submitted && attempted && Object.keys(errors).length) firstError.current?.focus();
@@ -77,7 +79,7 @@ export function InterestForm() {
     return (
       <div className="conversion-confirmation" role="status" aria-live="polite">
         <p className="eyebrow">Thank you</p>
-        <h3 className="mt-5 font-display text-4xl leading-[0.95] tracking-[-0.045em] sm:text-5xl">Your enquiry is ready for the next step.</h3>
+        <h3 ref={confirmationHeading} tabIndex={-1} className="mt-5 font-display text-4xl leading-[0.95] tracking-[-0.045em] focus:outline-none sm:text-5xl">Thanks for exploring Buying for Good.</h3>
         <p className="mt-6 max-w-xl text-base leading-8 text-ocean-950/64">
           This demo has recorded the form interaction locally in the browser. No email or backend service is connected, so no enquiry has been delivered.
         </p>
@@ -122,7 +124,7 @@ export function InterestForm() {
       {values.audience !== "supporter" && (
         <div className="grid gap-8 sm:grid-cols-2">
           <Field id="interest-organisation" label={values.audience === "charity" ? "Charity / organisation" : "Business / organisation"} value={values.organisation} onChange={(value) => update("organisation", value)} />
-          <Field id="interest-website" label="Website (optional)" type="url" value={values.website} optional onChange={(value) => update("website", value)} />
+          <Field id="interest-website" label="Website (optional)" type="url" value={values.website} error={errors.website} optional onChange={(value) => update("website", value)} />
         </div>
       )}
 
