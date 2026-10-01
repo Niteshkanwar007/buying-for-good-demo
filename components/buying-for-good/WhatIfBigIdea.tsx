@@ -29,25 +29,25 @@ export function WhatIfBigIdea() {
       const cards = gsap.utils.toArray<HTMLElement>(".what-if-card");
       gsap.set(cards, { opacity: 0, y: 90, scale: 0.94, rotate: 1 });
       gsap.set(cards[0], { opacity: 1, y: 0, scale: 1, rotate: 0 });
-      const tl = gsap.timeline({ scrollTrigger: { trigger: root.current, start: "top top", end: "+=360%", scrub: 1, pin: true, anticipatePin: 1 } });
+      const tl = gsap.timeline({ scrollTrigger: { trigger: root.current, start: "top top", end: "+=460%", scrub: 1.25, pin: true, anticipatePin: 1 } });
 
       cards.forEach((card, index) => {
-        if (index === 0) tl.to(card, { y: -12, scale: 1.01, duration: 0.45, ease: "none" });
+        if (index === 0) tl.to(card, { y: -12, scale: 1.01, duration: 0.62, ease: "none" });
         else {
           const previous = cards[index - 1];
-          tl.to(previous, { opacity: 0, y: -85, scale: 0.9, rotate: index % 2 ? -1.5 : 1.5, duration: 0.55, ease: "power2.inOut" })
-            .fromTo(card, { opacity: 0, y: 90, scale: 0.94, rotate: index % 2 ? 1.5 : -1.5 }, { opacity: 1, y: 0, scale: 1, rotate: 0, duration: 0.65, ease: "power2.out" }, "<0.12")
-            .to(card, { y: -12, scale: 1.01, duration: 0.4, ease: "none" });
+          tl.to(previous, { opacity: 0, y: -85, scale: 0.9, rotate: index % 2 ? -1.5 : 1.5, duration: 0.78, ease: "power2.inOut" })
+            .fromTo(card, { opacity: 0, y: 90, scale: 0.94, rotate: index % 2 ? 1.5 : -1.5 }, { opacity: 1, y: 0, scale: 1, rotate: 0, duration: 0.88, ease: "power2.out" }, "<0.12")
+            .to(card, { y: -12, scale: 1.01, duration: 0.55, ease: "none" });
         }
       });
-      tl.to(".what-if-orbit", { scale: 1.22, opacity: 0.75, duration: 1, ease: "none" }, 0)
+      tl.to(".what-if-orbit", { scale: 1.22, opacity: 0.75, duration: 1.3, ease: "none" }, 0)
         .to(".what-if-label", { y: -20, opacity: 0.25, duration: 1, ease: "none" }, 0)
-        .to(".what-if-exit", { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }, "-=0.35");
+        .to(".what-if-exit", { opacity: 1, scale: 1, duration: 0.95, ease: "power2.out" }, "-=0.35");
       return () => tl.kill();
     });
 
     mm.add("(max-width: 767px)", () => {
-      gsap.utils.toArray<HTMLElement>(".what-if-card").forEach((card) => gsap.fromTo(card, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: card, start: "top 88%", end: "top 64%", scrub: 0.7 } }));
+      gsap.utils.toArray<HTMLElement>(".what-if-card").forEach((card) => gsap.fromTo(card, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: card, start: "top 88%", end: "top 64%", scrub: 0.85 } }));
     });
     return () => mm.revert();
   }, { scope: root });
