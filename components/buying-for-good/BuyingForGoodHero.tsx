@@ -27,23 +27,35 @@ export function BuyingForGoodHero() {
         .from(".hero-copy", { y: 16, opacity: 0, duration: 0.95 }, 0.72)
         .from(".hero-scroll-cue", { y: 10, opacity: 0, duration: 0.75 }, 1.05);
 
-      const story = gsap.timeline({
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top top",
-          end: "+=150%",
-          scrub: 1.35,
-          pin: true,
-          anticipatePin: 1,
-        },
+      const mm = gsap.matchMedia();
+
+      mm.add("(min-width: 768px)", () => {
+        const story = gsap.timeline({
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top top",
+            end: "+=150%",
+            scrub: 1.35,
+            pin: true,
+            anticipatePin: 1,
+          },
+        });
+
+        story
+          .to(".hero-content", { yPercent: -15, opacity: 0.78, ease: "none" }, 0)
+          .to(".story-glow", { scale: 1.24, opacity: 0.92, ease: "none" }, 0)
+          .to(".hero-sun", { scale: 0.72, yPercent: 12, opacity: 0.3, ease: "none" }, 0)
+          .to(".hero-water", { yPercent: -10, ease: "none" }, 0)
+          .to(".hero-ripple", { opacity: 1, scale: 1.08, ease: "none" }, 0.2);
       });
 
-      story
-        .to(".hero-content", { yPercent: -15, opacity: 0.78, ease: "none" }, 0)
-        .to(".story-glow", { scale: 1.24, opacity: 0.92, ease: "none" }, 0)
-        .to(".hero-sun", { scale: 0.72, yPercent: 12, opacity: 0.3, ease: "none" }, 0)
-        .to(".hero-water", { yPercent: -10, ease: "none" }, 0)
-        .to(".hero-ripple", { opacity: 1, scale: 1.08, ease: "none" }, 0.2);
+      mm.add("(max-width: 767px)", () => {
+        gsap.timeline({ defaults: { ease: "power2.out" } })
+          .fromTo(".story-glow", { scale: 0.92, opacity: 0.45 }, { scale: 1.04, opacity: 0.82, duration: 1.5 })
+          .fromTo(".hero-ripple", { opacity: 0.35, scale: 0.94 }, { opacity: 0.82, scale: 1, duration: 1.7 }, "<0.25");
+      });
+
+      return () => mm.revert();
     },
     { scope: root }
   );
