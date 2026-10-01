@@ -233,9 +233,9 @@ export function CuriosityUnderstanding() {
         </div>
 
         <div className="understanding-photo-layer absolute inset-0 z-0" aria-hidden="true">
-          <PhotoBand {...photos[0]} index={0} />
-          <PhotoBand {...photos[1]} index={1} />
-          <PhotoBand {...photos[2]} index={2} />
+          <PhotoBand {...photos[0]} index={0} priority />
+          <PhotoBand {...photos[1]} index={1} priority />
+          <PhotoBand {...photos[2]} index={2} priority />
         </div>
 
         <div className="understanding-cards absolute inset-0 z-10">
