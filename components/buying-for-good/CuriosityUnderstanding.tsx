@@ -100,8 +100,8 @@ export function CuriosityUnderstanding() {
           scrollTrigger: {
             trigger: root.current,
             start: "top top",
-            end: "+=560%",
-            scrub: 1.1,
+            end: "+=680%",
+            scrub: 1.25,
             pin: true,
             anticipatePin: 1,
           },
@@ -109,7 +109,7 @@ export function CuriosityUnderstanding() {
 
         cardsEls.forEach((card, index) => {
           if (index === 0) {
-            tl.to(card, { y: -18, scale: 1.015, duration: 0.55, ease: "none" }, 0.15);
+            tl.to(card, { y: -18, scale: 1.015, duration: 0.72, ease: "none" }, 0.15);
           } else {
             const previous = cardsEls[index - 1];
             tl.to(previous, {
@@ -117,19 +117,19 @@ export function CuriosityUnderstanding() {
               scale: 0.91,
               rotate: index % 2 ? -2 : 2,
               opacity: 0,
-              duration: 0.65,
+              duration: 0.88,
               ease: "power2.inOut",
             })
               .fromTo(
                 card,
                 { opacity: 0, y: 90, scale: 0.93, rotate: index % 2 ? 2 : -2 },
-                { opacity: 1, y: 0, scale: 1, rotate: 0, duration: 0.72, ease: "power2.out" },
+                { opacity: 1, y: 0, scale: 1, rotate: 0, duration: 0.92, ease: "power2.out" },
                 "<0.18"
               )
               .to(card, {
                 y: -18,
                 scale: 1.015,
-                duration: 0.45,
+                duration: 0.58,
                 ease: "none",
               });
           }
@@ -140,14 +140,14 @@ export function CuriosityUnderstanding() {
             tl.fromTo(
               photo,
               { opacity: 0, x: index % 2 ? 80 : -80, y: 50 },
-              { opacity: 0.88, x: 0, y: 0, duration: 0.55, ease: "power2.out" },
+              { opacity: 0.88, x: 0, y: 0, duration: 0.82, ease: "power2.out" },
               "<0.08"
             ).to(
               photo,
               {
                 opacity: 0.24,
                 x: index % 2 ? -70 : 70,
-                duration: 0.7,
+                duration: 0.95,
                 ease: "power2.inOut",
               },
               "+=0.12"
@@ -178,7 +178,7 @@ export function CuriosityUnderstanding() {
                 trigger: card,
                 start: "top 88%",
                 end: "top 58%",
-                scrub: 0.7,
+                scrub: 0.95,
               },
             }
           );
