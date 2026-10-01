@@ -22,13 +22,13 @@ export function WhyThisMattersTrust() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: root.current,
-        start: "top 78%",
-        end: "top 34%",
-        scrub: 1.2,
+        start: "top 84%",
+        end: "top 30%",
+        scrub: 1.25,
       },
     });
 
-    tl.fromTo(statement, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power2.out" })
+    tl.fromTo(statement, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1.25, ease: "power2.out" })
       .fromTo(ring, { scale: 0.88, opacity: 0.35 }, { scale: 1, opacity: 1, duration: 1, ease: "power2.out" }, 0);
 
     return () => tl.kill();
