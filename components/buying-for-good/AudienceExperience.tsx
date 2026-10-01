@@ -67,8 +67,8 @@ export function AudienceExperience() {
     if (!panel || !image) return;
 
     const tl = gsap.timeline();
-    tl.fromTo(panel, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" })
-      .fromTo(image, { scale: 1.04 }, { scale: 1, duration: 0.75, ease: "power2.out" }, 0);
+    tl.fromTo(panel, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" })
+      .fromTo(image, { scale: 1.04 }, { scale: 1, duration: 0.95, ease: "power2.out" }, 0);
     return () => tl.kill();
   }, { dependencies: [active], scope: root });
 
@@ -79,7 +79,7 @@ export function AudienceExperience() {
     if (!intro || !choices.length) return;
 
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: root.current, start: "top 82%", end: "top 38%", scrub: 1 },
+      scrollTrigger: { trigger: root.current, start: "top 86%", end: "top 42%", scrub: 1.2 },
     });
     tl.fromTo(intro, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
       .fromTo(choices, { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: "power2.out" }, 0.12);
