@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PurchaseMoment } from "./PurchaseMoment";
 import { PurchaseRipple } from "./PurchaseRipple";
-import { PurchaseRipple } from "./PurchaseRipple";
 import { CharityCulmination } from "./CharityCulmination";
 
 gsap.registerPlugin(ScrollTrigger);
