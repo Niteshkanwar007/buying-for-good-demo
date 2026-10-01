@@ -62,18 +62,18 @@ const cards: StoryCardData[] = [
 
 const photos = [
   {
-    src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=72",
-    alt: "Wide coastal water and warm light",
+    src: "https://images.unsplash.com/photo-1770035034135-7d08040c6bc6?auto=format&fit=crop&w=2200&q=80",
+    alt: "Golden light over the ocean on the Australian coast",
     label: "Coast / open water",
   },
   {
-    src: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1800&q=72",
-    alt: "Calm blue water meeting a natural shoreline",
-    label: "Shore / connection",
+    src: "https://images.unsplash.com/photo-1704427227843-09d76cd22d0f?auto=format&fit=crop&w=2200&q=80",
+    alt: "A eucalyptus forest track in Australia",
+    label: "Bush / connection",
   },
   {
-    src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=72",
-    alt: "Sunlight moving across a green landscape",
+    src: "https://images.unsplash.com/photo-1679984742083-f9af29890e9c?auto=format&fit=crop&w=2200&q=80",
+    alt: "Australian bush landscape with a distant mountain",
     label: "Land / possibility",
   },
 ];
@@ -140,14 +140,14 @@ export function CuriosityUnderstanding() {
             tl.fromTo(
               photo,
               { opacity: 0, x: index % 2 ? 80 : -80, y: 50 },
-              { opacity: 0.88, x: 0, y: 0, duration: 0.82, ease: "power2.out" },
+              { opacity: 0.94, x: 0, y: 0, duration: 0.92, ease: "power2.out" },
               "<0.08"
             ).to(
               photo,
               {
-                opacity: 0.24,
+                opacity: 0.3,
                 x: index % 2 ? -70 : 70,
-                duration: 0.95,
+                duration: 1.05,
                 ease: "power2.inOut",
               },
               "+=0.12"
@@ -189,7 +189,7 @@ export function CuriosityUnderstanding() {
             photo,
             { opacity: 0, scale: 1.04 },
             {
-              opacity: 0.88,
+              opacity: 0.94,
               scale: 1,
               duration: 1,
               ease: "power2.out",
