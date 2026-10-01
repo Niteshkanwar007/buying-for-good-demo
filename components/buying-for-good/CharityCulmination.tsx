@@ -57,7 +57,6 @@ export function CharityCulmination() {
                   fill
                   sizes="(max-width: 640px) 50vw, 33vw"
                   className="object-cover saturate-[0.7] contrast-[0.95] transition-transform duration-700 group-hover:scale-[1.025]"
-                  priority={index < 2}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/65 via-transparent to-ocean-950/10" />
                 <figcaption className="absolute inset-x-4 bottom-4 text-[0.55rem] font-semibold uppercase tracking-[0.2em] text-sand/78 sm:inset-x-5 sm:bottom-5">
