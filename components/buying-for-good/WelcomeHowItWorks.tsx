@@ -11,11 +11,41 @@ import { CharityCulmination } from "./CharityCulmination";
 gsap.registerPlugin(ScrollTrigger);
 
 const purchases = [
-  { category: "Everyday / food", title: "A grocery purchase.", detail: "An ordinary purchase becomes a point of participation." },
-  { category: "Everyday / drink", title: "A coffee on the way through.", detail: "The action stays familiar. The meaning around it changes." },
-  { category: "Everyday / clothing", title: "Something to wear.", detail: "Another purchase joins the same shared model." },
-  { category: "Everyday / home", title: "Something for home.", detail: "More everyday choices can become part of the same ripple." },
-  { category: "Everyday / giving", title: "A gift for someone else.", detail: "One more purchase connects a person to the wider idea." },
+  {
+    category: "Everyday / food",
+    title: "A grocery purchase.",
+    detail: "An ordinary purchase becomes a point of participation.",
+    image: "https://images.unsplash.com/photo-1660514133952-ac5951fe9b64?auto=format&fit=crop&w=2200&q=80",
+    imageAlt: "People shopping inside a neighbourhood grocery store",
+  },
+  {
+    category: "Everyday / drink",
+    title: "A coffee on the way through.",
+    detail: "The action stays familiar. The meaning around it changes.",
+    image: "https://images.unsplash.com/photo-1762754105061-8082763619e6?auto=format&fit=crop&w=2200&q=80",
+    imageAlt: "Barista working behind a coffee shop counter",
+  },
+  {
+    category: "Everyday / clothing",
+    title: "Something to wear.",
+    detail: "Another purchase joins the same shared model.",
+    image: "https://images.unsplash.com/photo-1766721375783-ebef463344b4?auto=format&fit=crop&w=2200&q=80",
+    imageAlt: "People browsing clothing in a retail store",
+  },
+  {
+    category: "Everyday / home",
+    title: "Something for home.",
+    detail: "More everyday choices can become part of the same ripple.",
+    image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=2200&q=80",
+    imageAlt: "Warm contemporary home interior",
+  },
+  {
+    category: "Everyday / giving",
+    title: "A gift for someone else.",
+    detail: "One more purchase connects a person to the wider idea.",
+    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2200&q=80",
+    imageAlt: "Friends spending time together outdoors",
+  },
 ];
 
 export function WelcomeHowItWorks() {
@@ -48,6 +78,7 @@ export function WelcomeHowItWorks() {
         }
 
         tl.call(() => setActiveIndex(index), [], ">")
+          .to(".purchase-moment-image", { scale: 1.045, duration: 0.68, ease: "none" }, "<")
           .to(".how-it-works-ripple", { scale: 1 + index * 0.08, duration: 0.58, ease: "none" }, "<")
           .to(".how-it-works-copy", { opacity: 0.55, y: -8, duration: 0.5, ease: "none" }, "<")
           .to(".how-it-works-copy", { opacity: 1, y: 0, duration: 0.35, ease: "none" });
@@ -97,7 +128,7 @@ export function WelcomeHowItWorks() {
           </div>
 
           <div className="how-it-works-purchases absolute left-6 right-6 top-1/2 z-10 -translate-y-1/2 sm:left-10 sm:right-10 lg:left-16 lg:right-16">
-            <div className="mx-auto max-w-md">
+            <div className="mx-auto max-w-[42rem]">
               {purchases.map((purchase, index) => (
                 <div key={purchase.title} className="how-it-works-purchase-slot absolute inset-x-0 top-0">
                   <PurchaseMoment index={index + 1} {...purchase} active={activeIndex === index} />
