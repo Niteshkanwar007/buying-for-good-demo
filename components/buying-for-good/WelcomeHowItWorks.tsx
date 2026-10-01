@@ -32,8 +32,8 @@ export function WelcomeHowItWorks() {
         scrollTrigger: {
           trigger: root.current,
           start: "top top",
-          end: "+=430%",
-          scrub: 1,
+          end: "+=520%",
+          scrub: 1.25,
           pin: true,
           anticipatePin: 1,
         },
@@ -41,19 +41,19 @@ export function WelcomeHowItWorks() {
 
       moments.forEach((moment, index) => {
         if (index === 0) {
-          tl.fromTo(moment, { opacity: 0, y: 70, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power2.out" }, 0);
+          tl.fromTo(moment, { opacity: 0, y: 70, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.72, ease: "power2.out" }, 0);
         } else {
-          tl.to(moments[index - 1], { opacity: 0.34, y: -55, scale: 0.94, duration: 0.45, ease: "power2.inOut" })
-            .fromTo(moment, { opacity: 0, y: 70, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "power2.out" }, "<0.1");
+          tl.to(moments[index - 1], { opacity: 0.34, y: -55, scale: 0.94, duration: 0.72, ease: "power2.inOut" })
+            .fromTo(moment, { opacity: 0, y: 70, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.78, ease: "power2.out" }, "<0.1");
         }
 
         tl.call(() => setActiveIndex(index), [], ">")
-          .to(".how-it-works-ripple", { scale: 1 + index * 0.08, duration: 0.42, ease: "none" }, "<")
-          .to(".how-it-works-copy", { opacity: 0.55, y: -8, duration: 0.35, ease: "none" }, "<")
+          .to(".how-it-works-ripple", { scale: 1 + index * 0.08, duration: 0.58, ease: "none" }, "<")
+          .to(".how-it-works-copy", { opacity: 0.55, y: -8, duration: 0.5, ease: "none" }, "<")
           .to(".how-it-works-copy", { opacity: 1, y: 0, duration: 0.35, ease: "none" });
       });
 
-      tl.to(".how-it-works-ripple", { scale: 1.5, opacity: 0.9, duration: 0.7, ease: "power2.out" })
+      tl.to(".how-it-works-ripple", { scale: 1.5, opacity: 0.9, duration: 0.95, ease: "power2.out" })
         .to(".how-it-works-transition", { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, "<0.15");
 
       return () => tl.kill();
@@ -70,7 +70,7 @@ export function WelcomeHowItWorks() {
             trigger: moment,
             start: "top 88%",
             end: "top 64%",
-            scrub: 0.75,
+            scrub: 0.85,
             onEnter: () => setActiveIndex(index),
             onEnterBack: () => setActiveIndex(index),
           },
