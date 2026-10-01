@@ -23,6 +23,14 @@ body {
 
 @layer components {
   .eyebrow { @apply text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-ocean-800; }
+  .hero-media { position: absolute; inset: 0; z-index: -2; transform: scale(1.02); will-change: transform; }
+  .hero-media-overlay {
+    position: absolute; inset: 0; z-index: -1;
+    background:
+      linear-gradient(180deg, rgba(6,43,53,.18) 0%, rgba(6,43,53,.08) 34%, rgba(6,43,53,.5) 100%),
+      linear-gradient(90deg, rgba(6,43,53,.42) 0%, rgba(6,43,53,.08) 58%, rgba(6,43,53,.18) 100%);
+    pointer-events: none;
+  }
   .hero-shell {
     position: relative; isolation: isolate; min-height: 100svh; overflow: hidden;
     background:
@@ -31,11 +39,14 @@ body {
   }
   .hero-shell::after {
     content:""; position:absolute; inset:auto 0 0; height:42%; z-index:-1;
-    background:linear-gradient(180deg,rgba(8,62,73,0) 0%,rgba(6,43,53,.3) 35%,rgba(6,43,53,.78) 100%);
+    background:linear-gradient(180deg,rgba(8,62,73,0) 0%,rgba(6,43,53,.2) 35%,rgba(6,43,53,.72) 100%);
     pointer-events:none;
   }
   .hero-horizon { position:absolute; left:-5%; right:-5%; top:55%; height:18%; background:linear-gradient(180deg,rgba(221,240,232,.12),rgba(13,115,117,.18)); filter:blur(14px); transform:skewY(-1.2deg); pointer-events:none; }
   .hero-water { position:absolute; inset:58% -5% 0; background:repeating-linear-gradient(178deg,rgba(223,244,238,.08) 0,rgba(223,244,238,.08) 1px,transparent 1px,transparent 14px); opacity:.65; mask-image:linear-gradient(to bottom,transparent,black 22%,black); pointer-events:none; }
+  .purchase-moment-image,
+  .understanding-photo-image,
+  .audience-focus-image { will-change: transform; }
   .story-glow { position:absolute; left:50%; top:48%; width:min(58vw,760px); aspect-ratio:1; border-radius:999px; border:1px solid rgba(231,246,236,.2); transform:translate(-50%,-50%); box-shadow:0 0 80px rgba(255,222,163,.14),inset 0 0 90px rgba(255,222,163,.08); pointer-events:none; }
   .story-glow::before,.story-glow::after { content:""; position:absolute; inset:12%; border:1px solid rgba(231,246,236,.12); border-radius:inherit; }
   .story-glow::after { inset:28%; border-color:rgba(231,246,236,.16); }
@@ -89,6 +100,7 @@ body {
   .purchase-moment,
   .purchase-ripple,
   .charity-photo { will-change: transform, opacity; }
+  .charity-photo-grid { align-items: stretch; }
   .how-it-works-purchase-slot { pointer-events: none; }
   .how-it-works-purchase-slot .purchase-moment { pointer-events: auto; }
 }
@@ -131,7 +143,10 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .purchase-moment,
   .purchase-ripple,
-  .charity-photo { will-change: auto; }
+  .charity-photo,
+  .purchase-moment-image,
+  .understanding-photo-image,
+  .audience-focus-image { will-change: auto; }
 }
 
 
