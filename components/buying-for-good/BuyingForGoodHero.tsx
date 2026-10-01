@@ -21,18 +21,18 @@ export function BuyingForGoodHero() {
       });
 
       intro
-        .from(".hero-nav", { y: -18, opacity: 0, duration: 0.8 }, 0.15)
-        .from(".hero-kicker", { y: 18, opacity: 0, duration: 0.7 }, 0.25)
-        .from(".hero-title-line", { yPercent: 105, opacity: 0, duration: 1.15, stagger: 0.08 }, 0.35)
-        .from(".hero-copy", { y: 16, opacity: 0, duration: 0.75 }, 0.72)
-        .from(".hero-scroll-cue", { y: 10, opacity: 0, duration: 0.6 }, 1.05);
+        .from(".hero-nav", { y: -18, opacity: 0, duration: 1.0 }, 0.15)
+        .from(".hero-kicker", { y: 18, opacity: 0, duration: 0.9 }, 0.25)
+        .from(".hero-title-line", { yPercent: 105, opacity: 0, duration: 1.45, stagger: 0.12 }, 0.35)
+        .from(".hero-copy", { y: 16, opacity: 0, duration: 0.95 }, 0.72)
+        .from(".hero-scroll-cue", { y: 10, opacity: 0, duration: 0.75 }, 1.05);
 
       const story = gsap.timeline({
         scrollTrigger: {
           trigger: root.current,
           start: "top top",
-          end: "+=115%",
-          scrub: 1,
+          end: "+=150%",
+          scrub: 1.35,
           pin: true,
           anticipatePin: 1,
         },
