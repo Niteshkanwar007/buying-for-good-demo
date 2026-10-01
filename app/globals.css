@@ -175,6 +175,7 @@ body {
 
 @layer components {
   .audience-chapter { isolation: isolate; }
+  .audience-choice-grid { transition: grid-template-columns 700ms cubic-bezier(.22,1,.36,1); }
   .audience-choice { transition: border-color 450ms ease, transform 450ms ease; }
   .audience-choice-active { border-color: rgba(245,241,232,.38); }
   .audience-choice:focus-visible { transform: translateY(-2px); }
@@ -190,6 +191,7 @@ body {
   .audience-interest { padding-top: 7rem; padding-bottom: 7rem; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .audience-choice-grid,
   .audience-choice,
   .audience-focus-image { will-change: auto; transition: none; }
 }
