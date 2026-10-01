@@ -18,12 +18,12 @@ export function JigsawInvitation() {
     if (!piece || !ripple || !line) return;
 
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: root.current, start: "top 82%", end: "top 36%", scrub: 1.1 },
+      scrollTrigger: { trigger: root.current, start: "top 86%", end: "top 32%", scrub: 1.25 },
     });
 
-    tl.fromTo(piece, { x: -42, y: 18, rotate: -4, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1, ease: "power2.out" }, 0)
-      .fromTo(ripple, { scale: 0.76, opacity: 0.2 }, { scale: 1, opacity: 0.85, duration: 1, ease: "power2.out" }, 0)
-      .fromTo(line, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.8, ease: "power2.inOut" }, 0.3);
+    tl.fromTo(piece, { x: -42, y: 18, rotate: -4, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.25, ease: "power2.out" }, 0)
+      .fromTo(ripple, { scale: 0.76, opacity: 0.2 }, { scale: 1, opacity: 0.85, duration: 1.3, ease: "power2.out" }, 0)
+      .fromTo(line, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 1.0, ease: "power2.inOut" }, 0.3);
 
     return () => tl.kill();
   }, { scope: root });
