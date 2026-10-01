@@ -15,8 +15,8 @@ const display = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Buying for Good",
-  description: "A prototype for a more conscious way to experience everyday buying.",
+  title: "Buying for Good | Everyday purchases, shared impact",
+  description: "Buying for Good is an interactive prototype exploring how everyday purchases can become part of a shared charitable model.",
 };
 
 export default function RootLayout({
