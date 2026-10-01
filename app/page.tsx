@@ -3,6 +3,7 @@ import { CuriosityUnderstanding } from "@/components/buying-for-good/CuriosityUn
 import { WhatIfBigIdea } from "@/components/buying-for-good/WhatIfBigIdea";
 import { WelcomeHowItWorks } from "@/components/buying-for-good/WelcomeHowItWorks";
 import { WhyThisMattersTrust } from "@/components/buying-for-good/WhyThisMattersTrust";
+import { AudienceExperience } from "@/components/buying-for-good/AudienceExperience";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <WhatIfBigIdea />
       <WelcomeHowItWorks />
       <WhyThisMattersTrust />
+      <AudienceExperience />
     </main>
   );
 }
