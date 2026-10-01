@@ -1,9 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-
 type PurchaseMomentProps = {
   index: number;
   category: string;
@@ -13,21 +9,8 @@ type PurchaseMomentProps = {
 };
 
 export function PurchaseMoment({ index, category, title, detail, active = false }: PurchaseMomentProps) {
-  const root = useRef<HTMLElement>(null);
-
-  useGSAP(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    gsap.to(root.current, {
-      y: active ? -6 : 0,
-      opacity: active ? 1 : 0.78,
-      duration: 0.35,
-      ease: "power2.out",
-    });
-  }, { dependencies: [active] });
-
   return (
     <article
-      ref={root}
       aria-current={active ? "step" : undefined}
       className="purchase-moment relative rounded-[1.5rem] border border-ocean-950/10 bg-[#f7f3ea]/95 p-6 shadow-[0_22px_70px_rgba(6,43,53,0.12)] sm:p-8"
     >
