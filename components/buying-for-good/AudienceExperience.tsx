@@ -173,7 +173,7 @@ export function AudienceExperience() {
           <p className="eyebrow">Shared next step</p>
           <h2 id="interest-title" className="mt-5 max-w-4xl font-display text-[clamp(2.8rem,6vw,5.8rem)] leading-[0.92] tracking-[-0.05em]">Ready to explore a place in the ecosystem?</h2>
           <p className="mt-7 max-w-2xl text-base leading-8 text-ocean-950/62">[Expression-of-interest introduction to be supplied from the approved Buying for Good brief.]</p>
-          <button type="button" className="mt-9 inline-flex min-h-12 items-center justify-center rounded-full bg-ocean-950 px-6 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-sand focus:outline-none focus-visible:ring-2 focus-visible:ring-ocean-700 focus-visible:ring-offset-4">Register interest — coming next</button>
+          <a href="#expression-interest" className="mt-9 inline-flex min-h-12 items-center justify-center rounded-full bg-ocean-950 px-6 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-sand focus:outline-none focus-visible:ring-2 focus-visible:ring-ocean-700 focus-visible:ring-offset-4">Express your interest</a>
         </div>
       </section>
     </section>
