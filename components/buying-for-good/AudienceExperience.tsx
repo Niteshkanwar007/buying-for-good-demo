@@ -103,7 +103,7 @@ export function AudienceExperience() {
       </div>
 
       <div className="audience-choice-field px-6 pb-24 sm:px-10 sm:pb-32 lg:px-16">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 lg:flex-row lg:items-stretch">
+        <div className="audience-choice-grid mx-auto flex max-w-6xl flex-col gap-3 lg:grid lg:grid-cols-3 lg:items-stretch">
           {order.map((key) => {
             const item = audiences[key];
             const selectedState = active === key;
@@ -115,7 +115,7 @@ export function AudienceExperience() {
                 aria-expanded={selectedState}
                 aria-controls="audience-panel"
                 onClick={() => selectAudience(key)}
-                className={`audience-choice group relative min-h-[18rem] overflow-hidden rounded-[1.5rem] border text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sand/90 focus-visible:ring-offset-4 focus-visible:ring-offset-ocean-950 lg:min-h-[34rem] ${selectedState ? "audience-choice-active lg:flex-[2.25]" : "lg:flex-1"} border-sand/12`}
+                className={`audience-choice group relative min-h-[18rem] overflow-hidden rounded-[1.5rem] border text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sand/90 focus-visible:ring-offset-4 focus-visible:ring-offset-ocean-950 lg:min-h-[34rem] ${selectedState ? "audience-choice-active" : ""} border-sand/12`}
               >
                 <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 767px) 100vw, 33vw" priority={key === "business"} className="absolute inset-0 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]" />
                 <span className="absolute inset-0 bg-gradient-to-t from-ocean-950 via-ocean-950/35 to-ocean-950/5" aria-hidden="true" />
