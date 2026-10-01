@@ -5,10 +5,9 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { audienceLabels, audienceOrder, type AudienceKey } from "./audienceRoles";
 
 gsap.registerPlugin(ScrollTrigger);
-
-type AudienceKey = "business" | "charity" | "supporter";
 
 type Audience = {
   label: string;
@@ -54,7 +53,7 @@ const audiences: Record<AudienceKey, Audience> = {
   },
 };
 
-const order: AudienceKey[] = ["business", "charity", "supporter"];
+const order = audienceOrder;
 
 export function AudienceExperience() {
   const [active, setActive] = useState<AudienceKey>("business");
